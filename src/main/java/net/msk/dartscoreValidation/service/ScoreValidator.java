@@ -9,7 +9,7 @@ public class ScoreValidator {
 
     private static final Set<Integer> validThrowValues = new HashSet<>();
     private static final Set<Integer> validVisitValues = new HashSet<>();
-    private static boolean initialized;
+    private static boolean initialized = false;
 
     private static void init() {
         if(!initialized) {
@@ -20,7 +20,6 @@ public class ScoreValidator {
             validThrowValues.add(50);
 
             validVisitValues.addAll(validThrowValues);
-
             for(final Integer v : validThrowValues) {
                 for(final Integer n : validThrowValues) {
                     validVisitValues.add(v+n);
@@ -33,6 +32,7 @@ public class ScoreValidator {
                     validVisitValues.add(v+n);
                 }
             }
+            initialized = true;
         }
     }
 
