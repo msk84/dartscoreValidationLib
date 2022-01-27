@@ -1,5 +1,6 @@
 package net.msk.dartscoreValidation.service;
 
+import net.msk.dartscoreValidation.ScoreValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -55,5 +56,57 @@ class ScoreValidatorTest {
         Assertions.assertFalse(ScoreValidator.isValidVisit(-1));
         Assertions.assertFalse(ScoreValidator.isValidVisit(179));
         Assertions.assertFalse(ScoreValidator.isValidVisit(181));
+    }
+
+    @Test
+    void isValidFinishScore() {
+        Assertions.assertTrue(ScoreValidator.isValidFinish(2));
+        Assertions.assertTrue(ScoreValidator.isValidFinish(8));
+        Assertions.assertTrue(ScoreValidator.isValidFinish(16));
+        Assertions.assertTrue(ScoreValidator.isValidFinish(40));
+        Assertions.assertTrue(ScoreValidator.isValidFinish(120));
+        Assertions.assertTrue(ScoreValidator.isValidFinish(170));
+
+        Assertions.assertFalse(ScoreValidator.isValidFinish(-1));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(0));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(1));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(163));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(165));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(169));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(171));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(180));
+        Assertions.assertFalse(ScoreValidator.isValidFinish(181));
+    }
+
+    @Test
+    void isValidHighfinishScore() {
+        Assertions.assertTrue(ScoreValidator.isValidHighfinish(100));
+        Assertions.assertTrue(ScoreValidator.isValidHighfinish(120));
+        Assertions.assertTrue(ScoreValidator.isValidHighfinish(140));
+        Assertions.assertTrue(ScoreValidator.isValidHighfinish(167));
+        Assertions.assertTrue(ScoreValidator.isValidHighfinish(170));
+
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(-1));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(0));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(1));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(20));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(40));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(80));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(99));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(163));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(165));
+        Assertions.assertFalse(ScoreValidator.isValidHighfinish(180));
+    }
+
+    @Test
+    void isValidShortgame() {
+        Assertions.assertTrue(ScoreValidator.isValidShortgame(9));
+        Assertions.assertTrue(ScoreValidator.isValidShortgame(17));
+        Assertions.assertTrue(ScoreValidator.isValidShortgame(18));
+
+        Assertions.assertFalse(ScoreValidator.isValidShortgame(-1));
+        Assertions.assertFalse(ScoreValidator.isValidShortgame(0));
+        Assertions.assertFalse(ScoreValidator.isValidShortgame(8));
+        Assertions.assertFalse(ScoreValidator.isValidShortgame(19));
     }
 }
