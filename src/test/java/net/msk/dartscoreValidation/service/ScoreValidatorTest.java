@@ -59,6 +59,46 @@ class ScoreValidatorTest {
     }
 
     @Test
+    void isValidDoubleScore() {
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(2));
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(8));
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(16));
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(20));
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(40));
+        Assertions.assertTrue(ScoreValidator.isValidDoubleScore(50));
+
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(-1));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(0));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(1));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(3));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(9));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(41));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(52));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(80));
+        Assertions.assertFalse(ScoreValidator.isValidDoubleScore(100));
+    }
+
+    @Test
+    void isValidTripleScore() {
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(3));
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(9));
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(27));
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(33));
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(42));
+        Assertions.assertTrue(ScoreValidator.isValidTripleScore(60));
+
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(-1));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(0));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(1));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(2));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(8));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(26));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(40));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(50));
+        Assertions.assertFalse(ScoreValidator.isValidTripleScore(100));
+    }
+
+    @Test
     void isValidFinishScore() {
         Assertions.assertTrue(ScoreValidator.isValidFinish(2));
         Assertions.assertTrue(ScoreValidator.isValidFinish(8));

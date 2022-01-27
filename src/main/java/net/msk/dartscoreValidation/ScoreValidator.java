@@ -18,7 +18,7 @@ public class ScoreValidator {
     private static void init() {
         if(!initialized) {
             // Valid triples
-            validTripleValues.addAll(IntStream.range(0, 21).map(v -> v * 3).boxed().collect(Collectors.toSet()));
+            validTripleValues.addAll(IntStream.range(1, 21).map(v -> v * 3).boxed().collect(Collectors.toSet()));
 
             // Valid doubles
             validDoubleValues.addAll(IntStream.range(1, 21).map(v -> v * 2).boxed().collect(Collectors.toSet()));
@@ -88,6 +88,16 @@ public class ScoreValidator {
     public static boolean isValidVisit(final int visitScore) {
         init();
         return validVisitValues.contains(visitScore);
+    }
+
+    public static boolean isValidDoubleScore(final int throwScore) {
+        init();
+        return validDoubleValues.contains(throwScore);
+    }
+
+    public static boolean isValidTripleScore(final int throwScore) {
+        init();
+        return validTripleValues.contains(throwScore);
     }
 
     public static boolean isValidFinish(final int highFinishScore) {
