@@ -42,4 +42,18 @@ class ScoreValidatorTest {
         Assertions.assertFalse(ScoreValidator.isValidVisit(41,27,29));
         Assertions.assertFalse(ScoreValidator.isValidVisit(100,27,29));
     }
+
+    @Test
+    void isValidVisitScore() {
+        Assertions.assertTrue(ScoreValidator.isValidVisit(0));
+        Assertions.assertTrue(ScoreValidator.isValidVisit(16));
+        Assertions.assertTrue(ScoreValidator.isValidVisit(57));
+        Assertions.assertTrue(ScoreValidator.isValidVisit(60));
+        Assertions.assertTrue(ScoreValidator.isValidVisit(100));
+        Assertions.assertTrue(ScoreValidator.isValidVisit(180));
+
+        Assertions.assertFalse(ScoreValidator.isValidVisit(-1));
+        Assertions.assertFalse(ScoreValidator.isValidVisit(179));
+        Assertions.assertFalse(ScoreValidator.isValidVisit(181));
+    }
 }

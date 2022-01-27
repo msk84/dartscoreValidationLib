@@ -42,8 +42,14 @@ public class ScoreValidator {
     }
 
     public static boolean isValidVisit(final int throw1, final int throw2, final int throw3) {
+        // Init will be done inside
         return isValidThrow(throw1) &&
                 isValidThrow(throw2) &&
                 isValidThrow(throw3);
+    }
+
+    public static boolean isValidVisit(final int visitScore) {
+        init();
+        return validVisitValues.contains(visitScore);
     }
 }
